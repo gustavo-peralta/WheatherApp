@@ -1,0 +1,6 @@
+{
+	"system" : {
+		"appName" : "Weather app",
+		"serviceURL" : "http://api.openweathermap.org/data/2.5/forecast"
+	}
+}
