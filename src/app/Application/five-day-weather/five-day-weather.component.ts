@@ -10,6 +10,8 @@ export class FiveDayWeatherComponent implements OnInit {
 
   constructor(private fiveDayWheatherService: FiveDayWheatherService) { }
 
+  previsionCincoDias:any = [{}];
+
   ngOnInit() {
       console.log("INICIANDO");
       
@@ -18,8 +20,12 @@ export class FiveDayWeatherComponent implements OnInit {
               if ( result === null ) {
                   this.onError(result);
               } else {
+                  console.log("resultados servicio");
                   console.log(result);
-                
+                 
+                  this.previsionCincoDias = result;
+
+                  
               }
           });
       

@@ -28,21 +28,17 @@ export class FiveDayWheatherService {
       return this.http.get("http://api.openweathermap.org/data/2.5/forecast?q=Madrid,es&units=metric&lang=es&appid=f5b8a3b6ed0fdc167af94d2b9925ab55")                
           .map(( response: Response ) => {
     
-              //console.log("REPOJNSE: ", response);
-    
               let result : any = {};
               let body = response.json();
-              
-              if ( response.json().cod != 200 ) 
+
+              if ( body["cod"] != "200" ) 
                   return null;
               else {
-                  return result;
+                  return response;
               }
           } ).catch( this.handleError );
 
   }   
-  
-  
   
 }
 

@@ -5,13 +5,19 @@ import { HttpModule, Http } from  '@angular/http';
 import { AppComponent } from './app.component';
 import { ConfigModule, ConfigLoader } from "ngx-config";
 import { configFactory } from "./core/config/config.loader.factory";
-import { DashboardModule } from './Application/dashboard/dashboard.module';
+import { DashboardComponent } from './Application/dashboard/dashboard.component';
 import { AppRoutingModule } from "./app.routes";
 import {Routes, RouterModule} from '@angular/router';
 
-@NgModule({
+import { FiveDayWeatherComponent } from './Application/five-day-weather/five-day-weather.component';
+import { FiveDayWheatherService } from './Application/five-day-weather/five-day-wheather.service'
+
+  @NgModule({
   declarations: [
     AppComponent,
+    FiveDayWeatherComponent,
+    DashboardComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -25,11 +31,10 @@ import {Routes, RouterModule} from '@angular/router';
     }),
     */
     SharedModule,
-    AppRoutingModule,
-    DashboardModule
+    AppRoutingModule
   ],
-  exports: [RouterModule],
-  providers: [],
+  exports: [],
+  providers: [FiveDayWheatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
